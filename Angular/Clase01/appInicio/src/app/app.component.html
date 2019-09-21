@@ -1,0 +1,21 @@
+<button (click)="mostrar=!mostrar">Mostrar Listado</button>
+
+<div *ngIf="mostrar else mensaje">
+    <app-primero [titulo]="item.titulo" [subtitulo]="item.subtitulo" [cabecera]="item.cabecera"
+        *ngFor="let item of tableros" (onEnviando)="recibiendo($event)" (onGenerando)="generarAleatorio($event)">
+    </app-primero>
+</div>
+
+<ng-template #mensaje>
+    <div>
+        Presione el botón para mostrar
+    </div>
+</ng-template>
+
+
+
+<!-- <app-primero titulo="Sistema Ventas 01" subtitulo="Dashboard 01" cabecera="item 01" (onEnviando)="recibiendo()" (onGenerando)="generarAleatorio()"></app-primero>
+<app-primero titulo="Sistema Ventas 02" subtitulo="Dashboard 02" cabecera="item 02" (onEnviando)="recibiendo()" (onGenerando)="generarAleatorio()"></app-primero>
+<app-primero (onEnviando)="recibiendo()" (onGenerando)="generarAleatorio()"></app-primero> -->
+
+<div class="formatoTitulo"></div>
