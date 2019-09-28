@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TableroModelo } from './modelos/tablero.modelo';
 
 @Component({
@@ -9,6 +9,11 @@ import { TableroModelo } from './modelos/tablero.modelo';
 export class AppComponent {
   title = 'appInicio';
   mostrar: boolean = false
+
+  @ViewChild("titulo", { static: false }) tituloTablero: ElementRef
+  @ViewChild("subtitulo", { static: false }) subTituloTablero: ElementRef
+  @ViewChild("cabecera", { static: false }) cabeceraTablero: ElementRef
+
 
   //tableros: Array<{}>
   /*   tableros: TableroModelo[] = [
@@ -23,6 +28,12 @@ export class AppComponent {
     { titulo: "Título 3", subtitulo: "Subtítulo 3", cabecera: "Cabecera 3" },
     { titulo: "Título 4", subtitulo: "Subtítulo 4", cabecera: "Cabecera 4" }
   ]
+
+  agregar() {
+    console.log("tituloTablero", this.tituloTablero.nativeElement.value)
+    console.log("subTituloTablero", this.subTituloTablero.nativeElement.value)
+    console.log("cabeceraTablero", this.cabeceraTablero.nativeElement.value)
+  }
 
   recibiendo(tablero: TableroModelo) {
     //console.log(new Date())

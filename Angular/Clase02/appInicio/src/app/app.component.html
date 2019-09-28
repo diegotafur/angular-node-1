@@ -1,6 +1,17 @@
 <button (click)="mostrar=!mostrar">Mostrar Listado</button>
 
 <div *ngIf="mostrar else mensaje">
+
+    <form>
+        <input type="text" placeholder="Ingrese el titulo" #titulo>
+        <br>
+        <input type="text" placeholder="Ingrese el subtitulo" #subtitulo>
+        <br>
+        <textarea cols="30" rows="10" placeholder="Ingrese la cabecera" #cabecera></textarea>
+        <button type="button" (click)="agregar()">Agregar</button>
+    </form>
+
+
     <app-primero [titulo]="item.titulo" [subtitulo]="item.subtitulo" [cabecera]="item.cabecera"
         *ngFor="let item of tableros" (onEnviando)="recibiendo($event)" (onGenerando)="generarAleatorio($event)">
     </app-primero>
