@@ -1,4 +1,11 @@
-export class TableroModelo {
+export interface TableroModelo {
+    id?: string
+    titulo: string
+    subtitulo: string
+    cabecera: string
+}
+
+/* export class TableroModelo {
     titulo: string
     subtitulo: string
     cabecera: string
@@ -8,6 +15,6 @@ export class TableroModelo {
         this.subtitulo = subtitulo
         this.cabecera = cabecera
     }
-}
+} */
 
 //export default TableroModelo
