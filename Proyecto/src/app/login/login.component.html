@@ -1,10 +1,11 @@
 <div class="row justify-content-center align-items-center">
     <form class="col-8">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder='Correo' #correo>
+            <input type="text" class="form-control" placeholder='Correo' [(ngModel)]="correo" name="correo">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder='Contraseña' #contrasena>
+            <input type="password" class="form-control" placeholder='Contraseña' [(ngModel)]="contrasena"
+                name="contrasena">
         </div>
         <div>
             <button class="btn btn-success" type="button" (click)="login()">Ingresar</button>

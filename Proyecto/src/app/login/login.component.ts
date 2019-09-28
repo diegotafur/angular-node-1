@@ -9,8 +9,12 @@ import { Usuario } from '../modelos/usuario';
 export class LoginComponent implements OnInit {
   @Output() onCambioEstado = new EventEmitter()
 
-  @ViewChild("correo", { static: false }) correo: ElementRef
-  @ViewChild("contrasena", { static: false }) contrasena: ElementRef
+  /*   @ViewChild("correo", { static: false }) correo: ElementRef
+    @ViewChild("contrasena", { static: false }) contrasena: ElementRef
+   */
+
+  correo: string = ""
+  contrasena: string = ""
 
   constructor() { }
 
@@ -18,11 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const correo = this.correo.nativeElement.value
-    const contrasena = this.contrasena.nativeElement.value
+    /*     const correo = this.correo.nativeElement.value
+        const contrasena = this.contrasena.nativeElement.value */
 
-    if (correo.trim() != "" && contrasena.trim() != "") {
-      const usuario: Usuario = { correo, contrasena }
+    if (this.correo.trim() != "" && this.contrasena.trim() != "") {
+      const usuario: Usuario = { correo: this.correo, contrasena: this.contrasena }
       this.onCambioEstado.emit(true)
     } else {
       alert("Ingrese el correo y/o la contraseña")
