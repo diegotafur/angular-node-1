@@ -9,8 +9,8 @@ import { ProductoModel } from '../modelos/producto.model';
 export class ListadoProductosComponent implements OnInit {
   /*   @ViewChild("nombre", { static: false }) nombre: ElementRef
     @ViewChild("descripcion", { static: false }) descripcion: ElementRef */
-  nombre: string
-  descripcion: string
+  nombre: string = ""
+  descripcion: string = ""
 
   productos: ProductoModel[] = []
 
