@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { PrimeroComponent } from './primero.component';
@@ -16,7 +17,8 @@ import { EdicionUsuarioComponent } from './edicion-usuario/edicion-usuario.compo
     EdicionUsuarioComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

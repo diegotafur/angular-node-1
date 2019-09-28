@@ -10,9 +10,12 @@ export class AppComponent {
   title = 'appInicio';
   mostrar: boolean = false
 
-  @ViewChild("titulo", { static: false }) tituloTablero: ElementRef
-  @ViewChild("subtitulo", { static: false }) subTituloTablero: ElementRef
-  @ViewChild("cabecera", { static: false }) cabeceraTablero: ElementRef
+  /*   @ViewChild("titulo", { static: false }) tituloTablero: ElementRef
+    @ViewChild("subtitulo", { static: false }) subTituloTablero: ElementRef
+    @ViewChild("cabecera", { static: false }) cabeceraTablero: ElementRef */
+  titulo: string = "TITULO NUEVO"
+  subtitulo: string
+  cabecera: string
 
 
   //tableros: Array<{}>
@@ -30,9 +33,12 @@ export class AppComponent {
   ]
 
   agregar() {
-    console.log("tituloTablero", this.tituloTablero.nativeElement.value)
-    console.log("subTituloTablero", this.subTituloTablero.nativeElement.value)
-    console.log("cabeceraTablero", this.cabeceraTablero.nativeElement.value)
+    console.log("titulo", this.titulo)
+    console.log("subtitulo", this.subtitulo)
+    console.log("cabecera", this.cabecera)
+    /*     console.log("tituloTablero", this.tituloTablero.nativeElement.value)
+        console.log("subTituloTablero", this.subTituloTablero.nativeElement.value)
+        console.log("cabeceraTablero", this.cabeceraTablero.nativeElement.value) */
   }
 
   recibiendo(tablero: TableroModelo) {

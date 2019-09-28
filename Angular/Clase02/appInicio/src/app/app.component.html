@@ -3,11 +3,12 @@
 <div *ngIf="mostrar else mensaje">
 
     <form>
-        <input type="text" placeholder="Ingrese el titulo" #titulo>
+        <input type="text" placeholder="Ingrese el titulo" [(ngModel)]="titulo" name="titulo">
         <br>
-        <input type="text" placeholder="Ingrese el subtitulo" #subtitulo>
+        <input type="text" placeholder="Ingrese el subtitulo" [(ngModel)]="subtitulo" name="subtitulo">
         <br>
-        <textarea cols="30" rows="10" placeholder="Ingrese la cabecera" #cabecera></textarea>
+        <textarea cols="30" rows="10" placeholder="Ingrese la cabecera" [(ngModel)]="cabecera"
+            name="cabecera"></textarea>
         <button type="button" (click)="agregar()">Agregar</button>
     </form>
 
