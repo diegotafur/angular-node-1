@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoModel } from '../modelos/producto.model';
 
 @Component({
   selector: 'app-listado-productos',
@@ -7,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoProductosComponent implements OnInit {
 
-  productos: Array<{}> = []
+  productos: ProductoModel[] = []
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  agregar(){
-    const producto: {} = {
-      nombre: `Producto ${this.productos.length+1}`,
-      descripcion: `Descripción ${this.productos.length+1}`
-    }
+  agregar() {
+    /*     const producto: {} = {
+          nombre: `Producto ${this.productos.length + 1}`,
+          descripcion: `Descripción ${this.productos.length + 1}`
+        } */
+    const producto: ProductoModel = new ProductoModel(`Producto ${this.productos.length + 1}`, `Descripción ${this.productos.length + 1}`)
 
     this.productos.unshift(producto)
   }

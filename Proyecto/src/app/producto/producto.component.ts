@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { ProductoModel } from '../modelos/producto.model';
 
 @Component({
   selector: 'app-producto',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ProductoComponent implements OnInit {
 
-  @Input() producto: {}
+  @Input() producto: ProductoModel
   @Input() indice: number
   @Output() onEliminar = new EventEmitter()
 

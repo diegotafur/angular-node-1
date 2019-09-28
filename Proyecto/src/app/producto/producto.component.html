@@ -8,8 +8,8 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{producto.nombre}}</td>
-            <td>{{producto.descripcion}}</td>
+            <td>{{producto.nombreEnMayusculas()}}</td>
+            <td>{{producto.descripcion.toUpperCase()}}</td>
             <td>
                 <button class="btn btn-danger" (click)="eliminar()">Elminar</button>
             </td>
