@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Usuario } from '../modelos/usuario';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    const usuario: Usuario = {
+      correo: "sergiohidalgocaceres@gmail.com",
+      contrasena: "1234"
+    }
+
     this.onCambioEstado.emit(true)
   }
 
