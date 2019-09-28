@@ -2,14 +2,19 @@
 
 <div *ngIf="mostrar else mensaje">
 
-    <form>
-        <input type="text" placeholder="Ingrese el titulo" [(ngModel)]="titulo" name="titulo">
+    <form #formulario="ngForm">
+        <input type="text" placeholder="Ingrese el titulo" name="titulo" ngModel required email #titulo="ngModel">
+        <span *ngIf="titulo.invalid && titulo.touched && titulo.errors.required">El título es requerido</span>
+        <span *ngIf="titulo.invalid && titulo.touched && titulo.errors.email">Debe ser un correo</span>
         <br>
-        <input type="text" placeholder="Ingrese el subtitulo" [(ngModel)]="subtitulo" name="subtitulo">
+        <input type="text" placeholder="Ingrese el subtitulo" name="subtitulo" ngModel required>
         <br>
-        <textarea cols="30" rows="10" placeholder="Ingrese la cabecera" [(ngModel)]="cabecera"
-            name="cabecera"></textarea>
-        <button type="button" (click)="agregar()">Agregar</button>
+        <textarea cols="30" rows="10" placeholder="Ingrese la cabecera" name="cabecera" ngModel></textarea><br>
+        <input type="number" placeholder="Ingresar cantidad artículos" name="cantidad" ngModel required>
+        <br>
+        <button type="button" (click)="agregar()" [disabled]="formulario.invalid">Agregar</button>
+        <button type="button" (click)="cargarData()">Cargar Data</button>
+        <button type="button" (click)="cargarDataTitulo()">Cargar Data Parcial</button>
     </form>
 
 

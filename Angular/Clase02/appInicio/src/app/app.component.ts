@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TableroModelo } from './modelos/tablero.modelo';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,13 @@ export class AppComponent {
   /*   @ViewChild("titulo", { static: false }) tituloTablero: ElementRef
     @ViewChild("subtitulo", { static: false }) subTituloTablero: ElementRef
     @ViewChild("cabecera", { static: false }) cabeceraTablero: ElementRef */
-  titulo: string = "TITULO NUEVO"
-  subtitulo: string
-  cabecera: string
+  /*   titulo: string = "TITULO NUEVO"
+    subtitulo: string
+    cabecera: string */
+
+  @ViewChild("formulario", { static: false }) formulario: NgForm
+
+
 
 
   //tableros: Array<{}>
@@ -32,13 +37,32 @@ export class AppComponent {
     { titulo: "Título 4", subtitulo: "Subtítulo 4", cabecera: "Cabecera 4" }
   ]
 
+  ngOnInit() {
+
+  }
+
+  cargarData() {
+    this.formulario.setValue({
+      titulo: "titulo nuevo",
+      subtitulo: "subtitulo nuevo",
+      cabecera: "cabecera nueva",
+      cantidad: 10
+    })
+  }
+
+  cargarDataTitulo() {
+    this.formulario.form.patchValue({
+      titulo: "Título inicial"
+    })
+  }
+
   agregar() {
-    console.log("titulo", this.titulo)
-    console.log("subtitulo", this.subtitulo)
-    console.log("cabecera", this.cabecera)
-    /*     console.log("tituloTablero", this.tituloTablero.nativeElement.value)
-        console.log("subTituloTablero", this.subTituloTablero.nativeElement.value)
-        console.log("cabeceraTablero", this.cabeceraTablero.nativeElement.value) */
+    if (this.formulario.valid) {
+      console.log(this.formulario.value)
+      this.formulario.reset({
+        titulo: "titulo reseteado"
+      })
+    }
   }
 
   recibiendo(tablero: TableroModelo) {
